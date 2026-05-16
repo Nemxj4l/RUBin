@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-pinRed: #e60023;
+  --color-pinRedHover: #ad081b;
+  --color-brandBlue: #2563eb;
+  --color-brandBlueHover: #1d4ed8;
+  --color-darkBg: #121212;
+  --color-darkSurface: #212121;
+  --color-darkBorder: #333333;
+}
+
+@layer base {
+  body {
+    background-color: white;
+    color: var(--color-gray-900);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  .dark body {
+    background-color: var(--color-darkBg);
+    color: var(--color-gray-100);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-300);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-600);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gray-400);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gray-500);
+}
+
+/* Masonry Layout Overrides */
+.masonry-col {
+  column-gap: 1rem;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
